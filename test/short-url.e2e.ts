@@ -7,7 +7,7 @@ import { HTTP } from '../src/consts';
 
 const request = supertest(app);
 
-describe('Books', () => {
+describe('Short urls', () => {
   let usedShortcode = ""
   it('create url shortcode', async () => {
     const urlResult = await request
