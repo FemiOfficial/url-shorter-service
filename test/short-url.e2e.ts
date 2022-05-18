@@ -85,6 +85,7 @@ describe('Short urls', () => {
     assert.notStrictEqual(getUrlResult.body.startDate, undefined);
     assert.notStrictEqual(getUrlResult.body.lastSeenDate, undefined);
     assert.notStrictEqual(getUrlResult.body.redirectCount, undefined);
+    assert.strictEqual(getUrlResult.body._id, undefined);
     assert.strictEqual(getUrlResult.body.redirectCount, 1);
   });
 

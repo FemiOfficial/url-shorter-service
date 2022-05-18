@@ -21,7 +21,7 @@ export const createShortUrlRepository = (): AsyncShortUrlRepository => {
     },
     async getShortcodeStats(shortcode: string): Promise<IShortUrl | null> {
       return await ShortUrl.findOne({ shortcode })
-        .select("lastSeenDate redirectCount startDate")
+        .select("lastSeenDate redirectCount startDate -_id")
         .lean();
     },
   };
