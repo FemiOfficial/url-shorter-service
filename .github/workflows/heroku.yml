@@ -11,16 +11,6 @@ jobs:
     container:
       image: node:16
 
-    services:
-      mongodb:
-        image: mongodb
-        env:
-          MONGODB_USER: url_shorteruser
-          MONGODB_PASSWORD: somepasswordskuaddb
-          MONGODB_DB: url_shorter
-        ports:
-          - 27111:27111
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
