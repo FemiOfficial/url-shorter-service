@@ -10,25 +10,6 @@ export class StatusError extends Error {
   }
 }
 
-// export const notFoundHandler = (
-//   req: Request,
-//   res: Response,
-//   next: NextFunction
-// ) => {
-//   const err = new StatusError("Not Found", 404);
-//   next(err);
-// };
-
-
-// export const badRequestHandler = (
-//   err: StatusError,
-//   req: Request,
-//   res: Response,
-//   next: NextFunction
-// ) => {
-//   const err = new StatusError("Not Found", 404);
-//   next(err);
-// };
 
 export const serverErrorHandler = (
   err: StatusError,
