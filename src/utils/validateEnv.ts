@@ -4,7 +4,7 @@ import joi from "joi";
 const envVarsSchema = joi
   .object()
   .keys({
-    NODE_ENV: joi.string().valid("production", "development").required(),
+    NODE_ENV: joi.string().valid("production", "development", "testing").required(),
     DATABASE_URL: joi.string().required(),
     PORT: joi.string().required(),
     ALLOWED_HOSTS: joi.string().optional(),

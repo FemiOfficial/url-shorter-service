@@ -11,6 +11,7 @@ export const createShortUrlRepository = (): AsyncShortUrlRepository => {
     },
     async updateUrlStats(shortcode: string): Promise<boolean> {
       const url = await ShortUrl.findOne({ shortcode });
+      delete url?._id;
 
       if (!url) return false;
       url.lastSeenDate = new Date();
