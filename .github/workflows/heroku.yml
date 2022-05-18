@@ -2,35 +2,30 @@ name: Deploy to Heroku
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     container:
-      image: node:14
+      image: node:16
 
     services:
-      postgres:
-        image: postgres
+      mongodb:
+        image: mongodb
         env:
-          POSTGRES_USER: api
-          POSTGRES_PASSWORD: development_pass
-          POSTGRES_DB: books-api-testing
+          MONGODB_USER: url_shorteruser
+          MONGODB_PASSWORD: somepasswordskuaddb
+          MONGODB_DB: url_shorter
         ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          - 27111:27111
 
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: '14'
+          node-version: '16'
       - run: npm install
       - name: Run tests
         run: npm run test:ci
