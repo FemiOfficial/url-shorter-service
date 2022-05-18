@@ -8,7 +8,7 @@
     "test": "source .env.testing && mocha --exit -r ts-node/register --file test/global-setup.ts test/**/*.e2e.ts",
     "test:ci": "IN_CI=true mocha --exit -r ts-node/register --file test/global-setup.ts test/**/*.e2e.ts",
     "format": "prettier --write src/ test/",
-    "start:prod": "npm run db:migrate:prod && node dist/src/server.js",
+    "start:prod": "node dist/src/server.js",
     "start:dev": "source .env && ts-node-dev --debug --respawn src/server.ts"
   },
   "repository": {
