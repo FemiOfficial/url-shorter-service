@@ -40,13 +40,13 @@ describe('Short urls', () => {
     
   });
 
-  it('should return bad request if invalid shortccode is used ', async () => {
+  it('should return 422 if invalid shortccode is used ', async () => {
 
     await request
       .post('/shorten')
       .set('Accept', 'application/json')
       .send({ "url": "http://localhost:3000/short", shortcode: ''  })
-      .expect(HTTP.BAD_REQUEST);
+      .expect(HTTP.INVALID_FORMAT);
   });
 
   it('should return bad request if url is not sent ', async () => {
