@@ -1,0 +1,46 @@
+{
+  "name": "url-shortner-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "source .env.testing && mocha --exit -r ts-node/register --file test/global-setup.ts test/**/*.e2e.ts",
+    "test:ci": "IN_CI=true mocha --exit -r ts-node/register --file test/global-setup.ts test/**/*.e2e.ts",
+    "format": "prettier --write src/ test/",
+    "start:prod": "npm run db:migrate:prod && node dist/src/server.js",
+    "start:dev": "source .env && ts-node-dev --debug --respawn src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FemiOfficial/url-shorter-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FemiOfficial/url-shorter-service/issues"
+  },
+  "homepage": "https://github.com/FemiOfficial/url-shorter-service#readme",
+  "dependencies": {
+    "cors": "2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "4.17.1",
+    "express-async-errors": "3.1.1",
+    "joi": "^17.6.0",
+    "mongoose": "^6.3.3",
+    "randexp": "^0.5.3",
+    "winston": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.9",
+    "@types/express": "4.17.11",
+    "@types/mocha": "8.2.0",
+    "@types/supertest": "2.0.10",
+    "mocha": "8.2.1",
+    "prettier": "2.2.1",
+    "supertest": "6.1.1",
+    "ts-node-dev": "1.1.0",
+    "typescript": "4.1.3"
+  }
+}
