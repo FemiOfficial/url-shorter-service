@@ -62,7 +62,7 @@ describe('Short urls', () => {
     const getUrlResult = await request
       .get('/'+ usedShortcode)
       .set('Accept', 'application/json')
-      .expect(HTTP.OK);
+      .expect(HTTP.REDIRECT_FOUND);
 
     assert.strictEqual(getUrlResult.header.location, "http://localhost:3000/short");
   });

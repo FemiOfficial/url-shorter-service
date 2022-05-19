@@ -25,7 +25,7 @@ export const ShortUrlController = (
         throw new NotFoundException(
           "Could not fetch url for shortcode " + req.params.shortcode
         );
-      return res.status(HTTP.OK).header({ Location: url.url }).json();
+      return res.status(HTTP.REDIRECT_FOUND).header({ Location: url.url }).json();
     },
     async getShortUrlStats(req: Request, res: Response) {
       const urlStats = await shortUrlService.getShortUrlStats(
